@@ -3,9 +3,14 @@ import 'package:grocery_app/consts/app_texts.dart';
 import 'package:grocery_app/provider/theme_provider.dart';
 import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final ThemeProvider themeState = Provider.of<ThemeProvider>(context);
@@ -18,7 +23,9 @@ class HomeScreen extends StatelessWidget {
                 ? Icons.dark_mode_outlined
                 : Icons.light_mode_outlined,
           ),
-          onChanged: (value) => themeState.setDartTheme = value,
+          onChanged: (value) {
+            setState(() => themeState.setDartTheme = value);
+          },
           value: themeState.getTheme,
         ),
       ),

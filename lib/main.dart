@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:grocery_app/consts/theme_data.dart';
 import 'package:grocery_app/provider/theme_provider.dart';
 import 'package:grocery_app/screens/home_screen.dart';
+import 'package:grocery_app/screens/navigation_tab_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -42,11 +43,11 @@ class _MyAppState extends State<MyApp> {
       child: Consumer<ThemeProvider>(
         builder: (ctx, themeProvider, child) {
           return MaterialApp(
-              debugShowCheckedModeBanner: false,
-              title: 'Flutter Demo',
-              theme: Styles.themeData(themeProvider.getTheme, context),
-              home: const HomeScreen(),
-              );
+            debugShowCheckedModeBanner: false,
+            title: 'Flutter Demo',
+            theme: Styles.themeData(themeProvider.getTheme, context),
+            home: const NavigationTabScreen(),
+          );
         },
       ),
     );
