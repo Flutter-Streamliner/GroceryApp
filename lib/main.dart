@@ -6,13 +6,14 @@ import 'package:grocery_app/screens/home_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
-    (_) => runApp(MyApp()),
+    (_) => runApp(const MyApp()),
   );
 }
 
 class MyApp extends StatefulWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -34,19 +35,18 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    bool isDark = false;
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider<ThemeProvider>(create: (_) => ThemeProvider()),
       ],
       child: Consumer<ThemeProvider>(
         builder: (ctx, themeProvider, child) {
           return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            title: 'Flutter Demo',
-            theme: Styles.themeData(themeProvider.getTheme, context),
-            home: const HomeScreen(),
-          );
+              debugShowCheckedModeBanner: false,
+              title: 'Flutter Demo',
+              theme: Styles.themeData(themeProvider.getTheme, context),
+              home: const HomeScreen(),
+              );
         },
       ),
     );
