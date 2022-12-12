@@ -17,11 +17,23 @@ class NavigationTabScreen extends StatefulWidget {
 
 class _NavigationTabScreenState extends State<NavigationTabScreen> {
   int _selectedIndex = 0;
-  final List _pages = const [
-    HomeScreen(),
-    CategoriesScreen(),
-    CartScreen(),
-    UserScreen(),
+  final List<Map<String, dynamic>> _pages = const [
+    {
+      'page': HomeScreen(),
+      'title': AppTexts.homeTitle,
+    },
+    {
+      'page': CategoriesScreen(),
+      'title': AppTexts.categoriesTitle,
+    },
+    {
+      'page': CartScreen(),
+      'title': AppTexts.cartTitle,
+    },
+    {
+      'page': UserScreen(),
+      'title': AppTexts.userTitle,
+    },
   ];
 
   void _selectedPage(int index) {
@@ -34,7 +46,10 @@ class _NavigationTabScreenState extends State<NavigationTabScreen> {
   Widget build(BuildContext context) {
     final ThemeProvider themeState = Provider.of<ThemeProvider>(context);
     return Scaffold(
-      body: _pages[_selectedIndex],
+      body: _pages[_selectedIndex]['page'],
+      appBar: AppBar(
+        title: Text(_pages[_selectedIndex]['title']),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: themeState.getTheme ? Colors.black54 : Colors.white,
