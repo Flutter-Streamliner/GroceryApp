@@ -5,4 +5,7 @@ abstract class AppTexts {
   static const userTitle = 'User';
   static const cartTitle = 'Cart';
 
+  // user screen
+  static const userAddress = 'Address';
+  static const userDetails = 'Details';
 }

@@ -4,7 +4,7 @@ import 'package:grocery_app/provider/theme_provider.dart';
 import 'package:grocery_app/screens/cart_screen.dart';
 import 'package:grocery_app/screens/categories_screen.dart';
 import 'package:grocery_app/screens/home_screen.dart';
-import 'package:grocery_app/screens/user_screen.dart';
+import 'package:grocery_app/screens/user/user_screen.dart';
 import 'package:iconly/iconly.dart';
 import 'package:provider/provider.dart';
 
